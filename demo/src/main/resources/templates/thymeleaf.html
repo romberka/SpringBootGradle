@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p>Hello <span th:text="${name}">Mr. Anderson</span>!</p>
+    <p>Todays date is <span th:text="${#dates.format(#dates.createNow(), 'MM/dd/yyyy')}">01/01/2017</span></p>
+</body>
+</html>

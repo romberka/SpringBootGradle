@@ -1,0 +1,87 @@
+# Global configurations
+#security:
+#  user:
+#    name: user
+#    password: ENC(HG5ysOz4Abg1pw7VzkRiiM10xzN4FgWh)
+
+server:
+  port: 9000
+
+logging:
+  file: logFile.log
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+
+welcome:
+  message: "Welcome: Spring Boot is up and running!"
+
+service:
+  address:
+    accountDetailQuery: http://${sap.service.host}/sap/bc/srt/xip/sap/zaccountdetail_query_ib_syc1/${sap.service.client}/zaccountdetail_query_ib_syc1/zaccountdetail_query_ib_syc1
+---
+# Dev specific configurations
+spring:
+  profiles: default
+    
+active:
+  profile:
+    message: Dev is up and running!
+
+sap:
+  service:
+    host: qe0wd.amwaternp.net:50200
+    client: 100
+    user: wss_system
+    password: connectme2
+#    password: ENC(vrxUK3QoYn64ZmHAyFpspIUWZMsTRZuZ)
+
+jms:
+  uri: amqp://hsynlamqs001.amwaternp.net:5672
+  queue: queue
+  
+---
+# QA specific configurations
+spring:
+  profiles: qa
+    
+active:
+  profile:
+    message: QA is up and running!
+
+sap:
+  service:
+    host: qe0wd.amwaternp.net:50200
+    client: 100
+    user: wss_system
+#    password: ENC(vrxUK3QoYn64ZmHAyFpspIUWZMsTRZuZ)
+
+jms:
+  uri: amqp://hsynlamqs001.amwaternp.net:5672
+  queue: queue
+
+---
+# Prod specific configurations
+spring:
+  profiles: prod
+    
+active:
+  profile:
+    message: Prod is up and running!
+
+sap:
+  service:
+    host: pe0wd.amwater.net:50000
+    client: 100
+    user: wss_system
+#    password: ENC(8lrtmpCkQXG6HzJMb/Y5kv5gRaFZ/GlP)
+
+jms:
+  uri: amqp://hsynlamqs001.amwaternp.net:5672
+  queue: queue
+  
+    
